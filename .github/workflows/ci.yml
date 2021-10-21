@@ -8,3 +8,12 @@ jobs:
     steps:
       - run: brew tap lovell/cgif-packaging https://github.com/lovell/cgif-packaging.git
       - run: brew install --build-bottle lovell/cgif-packaging/cgif
+  build-rpms:
+    runs-on: ubuntu-latest
+    name: Build RPMs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Building all RPMs
+        uses: ./redhat/buildrpm/
+        id: buildrpm
